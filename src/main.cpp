@@ -33,22 +33,22 @@ void DrawBike(const Bike &bike)
 int main()
 {
     InitWindow(1280, 720, "Rigid Bike Prototype");
+    SetTargetFPS(60);
+
     InitPhysics();
 
     // --- Ground ---
-    {
-        b2BodyDef groundDef;
-        groundDef.position.Set(0, 0);
-        b2Body *ground = gWorld->CreateBody(&groundDef);
+    // {
+    //     b2BodyDef groundDef;
+    //     groundDef.position.Set(0, 0);
+    //     b2Body *ground = gWorld->CreateBody(&groundDef);
 
-        b2PolygonShape groundShape;
-        groundShape.SetAsBox(20.0f, 0.5f);
-        ground->CreateFixture(&groundShape, 0.0f);
-    }
+    //     b2PolygonShape groundShape;
+    //     groundShape.SetAsBox(20.0f, 0.5f);
+    //     ground->CreateFixture(&groundShape, 0.0f);
+    // }
 
     Bike bike = CreateBike(5, 5);
-
-    SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
@@ -58,9 +58,9 @@ int main()
         // --- Input ---
         float throttle = 0.0f;
         if (IsKeyDown(KEY_UP))
-            throttle = 5.0f;
+            throttle = 7.0f;
         if (IsKeyDown(KEY_DOWN))
-            bike.backSuspension->SetMotorSpeed(-5.0f);
+            throttle = 0.0f;
 
         float leanTorque = 0.0f;
         if (IsKeyDown(KEY_LEFT))
@@ -80,6 +80,7 @@ int main()
         EndDrawing();
     }
 
+    delete gWorld;
     CloseWindow();
     return 0;
 }

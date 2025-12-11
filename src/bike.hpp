@@ -7,7 +7,10 @@ struct Bike
     b2Body *frontWheel = nullptr;
     b2Body *backWheel = nullptr;
 
-    b2RevoluteJoint *backSuspension = nullptr;
+    // Change from b2RevoluteJoint to b2WheelJoint for realistic suspension
+    b2WheelJoint *frontSuspension = nullptr;
+    b2WheelJoint *backSuspension = nullptr; // This will also handle the motor
+
     float wheelRadius = 0.35f;
 };
 
