@@ -7,7 +7,12 @@ struct Bike
     b2Body *frontWheel = nullptr;
     b2Body *backWheel = nullptr;
 
+    b2RevoluteJoint *backSuspension = nullptr;
     float wheelRadius = 0.35f;
 };
 
-Bike CreateBike(b2World &world, float x, float y);
+// Create bike at (x, y)
+Bike CreateBike(float x, float y);
+
+// Update bike motor
+void UpdateBike(Bike &bike, float throttle);
