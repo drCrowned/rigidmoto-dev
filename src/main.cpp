@@ -2,6 +2,8 @@
 #include "physics.hpp"
 #include "bike.hpp"
 
+#include "loadTilemap.hpp"
+
 const float SCALE = 60.0f; // pixels per meter
 
 void DrawBike(const Bike &bike)
@@ -35,18 +37,8 @@ int main()
     InitWindow(1280, 720, "Rigid Bike Prototype");
     SetTargetFPS(60);
 
+    Tilemap map = LoadTilemap("../maps/Saved Maps/flatmap/flatmap.json", "../maps/Saved Maps/flatmap/flatmap.png");
     InitPhysics();
-
-    // --- Ground ---
-    // {
-    //     b2BodyDef groundDef;
-    //     groundDef.position.Set(0, 0);
-    //     b2Body *ground = gWorld->CreateBody(&groundDef);
-
-    //     b2PolygonShape groundShape;
-    //     groundShape.SetAsBox(20.0f, 0.5f);
-    //     ground->CreateFixture(&groundShape, 0.0f);
-    // }
 
     Bike bike = CreateBike(5, 5);
 
@@ -74,6 +66,8 @@ int main()
         // --- Draw ---
         BeginDrawing();
         ClearBackground(RAYWHITE);
+
+        DrawTilemap(map, {0, 0});
 
         DrawBike(bike);
 

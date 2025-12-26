@@ -4,7 +4,7 @@
 // Suspension constants
 const float SUSPENSION_FREQUENCY_HZ = 2.0f;  // Spring frequency (Hz)
 const float SUSPENSION_DAMPING_RATIO = 0.2f; // Damping ratio (0.7 is common for vehicles)
-const float MAX_MOTOR_TORQUE = 260.0f;       // Max torque for the rear motor
+const float MAX_MOTOR_TORQUE = 160.0f;       // Max torque for the rear motor
 
 // Calculates the stiffness (k) for a Wheel Joint based on frequency and damping ratio.
 // Box2D uses this formula in its testbed examples.
@@ -65,7 +65,7 @@ Bike CreateBike(float x, float y)
     wheelDef.type = b2_dynamicBody;
 
     // Wheel mass is often higher than the chassis fixture mass for inertia
-    const float wheelDensity = 1.5f;
+    const float wheelDensity = 2.5f;
 
     // Front wheel
     float frontX = x + 0.8f;

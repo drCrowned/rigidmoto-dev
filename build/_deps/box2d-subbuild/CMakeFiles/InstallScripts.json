@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/crownedlaptop/Documents/GitHub/rigidmoto-dev/build/_deps/box2d-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

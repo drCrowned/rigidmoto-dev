@@ -43,6 +43,7 @@ add_executable(RigidMotoPrototype
     src/main.cpp
     src/physics.cpp
     src/bike.cpp
+    src/loadTilemap.cpp
 )
 
 target_link_libraries(RigidMotoPrototype PRIVATE raylib box2d)
